@@ -1,0 +1,24 @@
+{
+  "name": "dietmmanager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TimGaz92/dietmmanager.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TimGaz92/dietmmanager/issues"
+  },
+  "homepage": "https://github.com/TimGaz92/dietmmanager#readme",
+  "dependencies": {
+    "inquirer": "^3.2.2",
+    "mongoose": "^4.11.7"
+  }
+}
