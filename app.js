@@ -29,7 +29,8 @@ var mealSchema = new Schema({
   	type: String
   }
 });
-
+/////////////////////////////////////////////////////////////////////
+//	mongoose model 
 var Meals = mongoose.model("Meals", mealSchema);
 
 
@@ -55,7 +56,7 @@ console.log('---------------------------------------- \n');
 		if (answers.selector == "view previous meals") {
 			displayPrevious();
 		}
-		else if (answers.selector == "addd a new meal") {
+		else if (answers.selector == "add a new meal") {
 			addMeal();
 		}
 		else{
@@ -68,6 +69,9 @@ start();
 ///////////////////////////////////////////////////////////////////////////
 function displayPrevious(){
 	//call to mongo db and relevant ui processing
+	console.log('----------------------------------------- \n');
+	console.log(' displaying previous meals');
+	console.log('date________Meal__________Food Items');
 	 Meals.find({}).exec(function(err, data) {
 
     if (err) {
@@ -95,7 +99,18 @@ function addMeal(){
 		type: "input",
 		message: "what meal was this; breakfast, lunch or dinner?",
 		name: "inputMeal"
-	}]).then(function(){
-		
+	}]).then(function(answers){
+		console.log("adding to information to database");
+		console.log(answers.inputDate);
+		console.log(answers.inputFood);
+		console.log(answers.inputMeal);
+		//create an object and push to mongo
+		var entry = new Meals({
+			date: answers.inputDate,
+			food: answers.inputFood,
+			meal: answers.inputMeal
+		});
+
 	});
+
 }
